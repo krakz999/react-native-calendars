@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import * as defaultStyle from '../style';
 
 
@@ -6,23 +6,11 @@ const commons = require('./commons');
 const STYLESHEET_ID = 'stylesheet.expandable.main';
 
 export default function styleConstructor(theme = {}) {
-  const appStyle = {...defaultStyle, ...theme};
-  
+  const appStyle = { ...defaultStyle, ...theme };
+
   return StyleSheet.create({
     containerShadow: {
-      backgroundColor: appStyle.calendarBackground,
-      ...Platform.select({
-        ios: {
-          shadowColor: '#858F96',
-          shadowOpacity: 0.25,
-          shadowRadius: 10,
-          shadowOffset: {height: 2, width: 0},
-          zIndex: 99
-        },
-        android: {
-          elevation: 3
-        }
-      })
+      backgroundColor: appStyle.calendarBackground
     },
     container: {
       backgroundColor: appStyle.calendarBackground
@@ -43,18 +31,6 @@ export default function styleConstructor(theme = {}) {
       borderRadius: 3,
       backgroundColor: '#e8ecf0'
     },
-    sectionText: {
-      fontWeight: 'bold', 
-      fontSize: 12,
-      lineHeight: 16,
-      color: '#7a92a5',
-      paddingTop: 24, // 8
-      paddingBottom: 8,
-      paddingLeft: 20,
-      backgroundColor: appStyle.calendarBackground,
-      textAlign: 'left',
-      textTransform: 'uppercase'
-    },
     header: {
       position: 'absolute',
       left: 0,
@@ -71,8 +47,8 @@ export default function styleConstructor(theme = {}) {
       color: appStyle.monthTextColor
     },
     weekDayNames: {
-      flexDirection: 'row', 
-      justifyContent: 'space-between' 
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     weekday: {
       width: 32,
@@ -106,13 +82,13 @@ export default function styleConstructor(theme = {}) {
     },
     todayButtonContainer: {
       alignItems: appStyle.todayButtonPosition === 'right' ? 'flex-end' : 'flex-start',
-      position: 'absolute', 
-      left: 20, 
-      right: 20, 
-      bottom : 0
+      position: 'absolute',
+      left: 20,
+      right: 20,
+      bottom: 0
     },
     todayButton: {
-      height: commons.isTablet ? 40 : 28, 
+      height: commons.isTablet ? 40 : 28,
       paddingHorizontal: commons.isTablet ? 20 : 12,
       borderRadius: commons.isTablet ? 20 : 14,
       flexDirection: appStyle.todayButtonPosition === 'right' ? 'row-reverse' : 'row',
@@ -124,7 +100,7 @@ export default function styleConstructor(theme = {}) {
           shadowColor: '#79838A',
           shadowOpacity: 0.3,
           shadowRadius: 14,
-          shadowOffset: {height: 6, width: 0}
+          shadowOffset: { height: 6, width: 0 }
         },
         android: {
           elevation: 6
@@ -133,12 +109,12 @@ export default function styleConstructor(theme = {}) {
     },
     todayButtonText: {
       color: appStyle.todayButtonTextColor,
-      fontSize: commons.isTablet ? appStyle.todayButtonFontSize + 2 : appStyle.todayButtonFontSize, 
+      fontSize: commons.isTablet ? appStyle.todayButtonFontSize + 2 : appStyle.todayButtonFontSize,
       fontWeight: appStyle.todayButtonFontWeight,
       fontFamily: appStyle.todayButtonFontFamily
     },
     todayButtonImage: {
-      tintColor: appStyle.todayButtonTextColor, 
+      tintColor: appStyle.todayButtonTextColor,
       marginLeft: appStyle.todayButtonPosition === 'right' ? 7 : undefined,
       marginRight: appStyle.todayButtonPosition === 'right' ? undefined : 7
     },
